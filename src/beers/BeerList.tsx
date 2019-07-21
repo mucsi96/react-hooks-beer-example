@@ -1,6 +1,6 @@
-import React from "react";
-import { useBeers } from "./BeersProvider";
-import { Beer } from "./Beer";
+import React from 'react';
+import { useBeers } from './BeersProvider';
+import { Beer } from './Beer';
 
 export const BeerList: React.FC = () => {
   const { beers, loading, error } = useBeers();

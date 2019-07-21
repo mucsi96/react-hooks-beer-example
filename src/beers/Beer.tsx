@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type TBeerProps = {
   name: string;
@@ -7,12 +7,7 @@ type TBeerProps = {
   firstBrewed: Date;
 };
 
-export const Beer: React.FC<TBeerProps> = ({
-  name,
-  imageUrl,
-  description,
-  firstBrewed
-}) => (
+export const Beer: React.FC<TBeerProps> = ({ name, imageUrl, description, firstBrewed }) => (
   <tr>
     <td>{name}</td>
     <td>{new Intl.DateTimeFormat().format(firstBrewed)}</td>

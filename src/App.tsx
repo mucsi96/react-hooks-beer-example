@@ -3,9 +3,11 @@ import { BeersProvider } from './beers/BeersProvider';
 import { BeerList } from './beers/BeerList';
 
 const App: React.FC = () => {
-  return <BeersProvider>
-    <BeerList />
-  </BeersProvider>
-}
+  return (
+    <BeersProvider>
+      <BeerList />
+    </BeersProvider>
+  );
+};
 
 export default App;
