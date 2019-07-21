@@ -1,6 +1,5 @@
 import React from "react";
 import { useBeers } from "./BeersProvider";
-import { TBeer } from "../punkapi";
 import { Beer } from "./Beer";
 
 export const BeerList: React.FC = () => {
@@ -25,17 +24,15 @@ export const BeerList: React.FC = () => {
         </tr>
       </thead>
       <tbody>
-        {beers.map(
-          ({ id, name, description, imageUrl, firstBrewed }: TBeer) => (
-            <Beer
-              key={id}
-              name={name}
-              description={description}
-              imageUrl={imageUrl}
-              firstBrewed={firstBrewed}
-            />
-          )
-        )}
+        {beers.map(({ id, name, description, imageUrl, firstBrewed }) => (
+          <Beer
+            key={id}
+            name={name}
+            description={description}
+            imageUrl={imageUrl}
+            firstBrewed={firstBrewed}
+          />
+        ))}
       </tbody>
     </table>
   );
