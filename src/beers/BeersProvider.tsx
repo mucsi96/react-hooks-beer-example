@@ -23,7 +23,7 @@ export const BeersProvider: React.FC = ({ children }) => {
       try {
         setLoading(true);
         setBeers(await fetchBeers());
-      } catch (e) {
+      } catch {
         setError('Unable to fetch the beers');
       } finally {
         setLoading(false);
