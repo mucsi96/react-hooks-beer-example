@@ -1,0 +1,25 @@
+.container {
+  display: grid;
+  grid-template-columns: 5em auto;
+  grid-template-rows: min-content auto;
+  grid-template-areas:
+    'image header'
+    'image description';
+  grid-gap: 30px;
+  margin-bottom: 30px;
+}
+
+.image {
+  height: 10em;
+  grid-area: image;
+  justify-self: center;
+  margin-top: 10px;
+}
+
+.firstBrewed {
+  color: gray;
+}
+
+.title {
+  margin-top: 0;
+}

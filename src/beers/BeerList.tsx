@@ -1,6 +1,7 @@
 import React from 'react';
 import { useBeers } from './BeersProvider';
 import { Beer } from './Beer';
+import style from './BeerList.module.css';
 
 export const BeerList: React.FC = () => {
   const { beers, loading, error } = useBeers();
@@ -14,26 +15,16 @@ export const BeerList: React.FC = () => {
   }
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>First brewed</th>
-          <th>Image</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        {beers.map(({ id, name, description, imageUrl, firstBrewed }) => (
-          <Beer
-            key={id}
-            name={name}
-            description={description}
-            imageUrl={imageUrl}
-            firstBrewed={firstBrewed}
-          />
-        ))}
-      </tbody>
-    </table>
+    <section className={style.container}>
+      {beers.map(({ id, name, description, imageUrl, firstBrewed }) => (
+        <Beer
+          key={id}
+          name={name}
+          description={description}
+          imageUrl={imageUrl}
+          firstBrewed={firstBrewed}
+        />
+      ))}
+    </section>
   );
 };

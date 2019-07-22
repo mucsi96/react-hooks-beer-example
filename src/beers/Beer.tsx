@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './Beer.module.css';
 
 type TBeerProps = {
   name: string;
@@ -8,12 +9,14 @@ type TBeerProps = {
 };
 
 export const Beer: React.FC<TBeerProps> = ({ name, imageUrl, description, firstBrewed }) => (
-  <tr>
-    <td>{name}</td>
-    <td>{new Intl.DateTimeFormat().format(firstBrewed)}</td>
-    <td>
-      <img src={imageUrl} alt={name} />
-    </td>
-    <td>{description}</td>
-  </tr>
+  <article className={style.container}>
+    <img src={imageUrl} alt={name} className={style.image} />
+    <header>
+      <h2 className={style.title}>{name}</h2>
+      <span className={style.firstBrewed}>
+        First brewed: {new Intl.DateTimeFormat().format(firstBrewed)}
+      </span>
+    </header>
+    <main>{description}</main>
+  </article>
 );
