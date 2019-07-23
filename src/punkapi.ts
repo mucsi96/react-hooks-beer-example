@@ -1,5 +1,5 @@
 type APIBeer = {
-  id: string;
+  id: number;
   name: string;
   tagline: string;
   first_brewed: string;
@@ -8,7 +8,7 @@ type APIBeer = {
 };
 
 export type TBeer = {
-  id: string;
+  id: number;
   name: string;
   firstBrewed: Date;
   description: string;

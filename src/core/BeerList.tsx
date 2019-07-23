@@ -7,7 +7,7 @@ type TBeerList = {
   beers: TBeer[];
   loading: boolean;
   error: string;
-  isFavorite: (id: string) => boolean;
+  isFavorite: (id: number) => boolean;
 };
 
 export const BeerList: React.FC<TBeerList> = ({ beers, loading, error, isFavorite }) => {
@@ -24,6 +24,7 @@ export const BeerList: React.FC<TBeerList> = ({ beers, loading, error, isFavorit
       {beers.map(({ id, name, description, imageUrl, firstBrewed }) => (
         <Beer
           key={id}
+          id={id}
           name={name}
           description={description}
           imageUrl={imageUrl}

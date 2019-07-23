@@ -10,7 +10,7 @@ export const FavoriteBeerList: React.FC = () => {
   const favoriteBeers = useMemo(
     () =>
       favorites
-        .map((favoriteBeerId: string) => beers.find(({ id }: TBeer) => id === favoriteBeerId))
+        .map((favoriteBeerId: number) => beers.find(({ id }: TBeer) => id === favoriteBeerId))
         .filter(Boolean) as TBeer[],
     [beers, favorites]
   );

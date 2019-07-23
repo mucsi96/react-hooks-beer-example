@@ -1,24 +1,24 @@
 import React, { createContext, useState, useContext } from 'react';
 
 type TFavoritesContext = {
-  favorites: string[];
-  addFavorite: (favorite: string) => void;
-  removeFavorite: (favorite: string) => void;
+  favorites: number[];
+  addFavorite: (favorite: number) => void;
+  removeFavorite: (favorite: number) => void;
 };
 
 const FavoritesContext = createContext<TFavoritesContext>({} as TFavoritesContext);
 
 export const FavoritesProvider: React.FC = ({ children }) => {
-  const [favorites, setFavorites] = useState<string[]>([]);
+  const [favorites, setFavorites] = useState<number[]>([]);
 
   return (
     <FavoritesContext.Provider
       value={{
         favorites,
-        addFavorite: (favorite: string) => setFavorites([...favorites, favorite]),
-        removeFavorite: (favorite: string) =>
+        addFavorite: (favorite: number) => setFavorites([...favorites, favorite]),
+        removeFavorite: (favorite: number) =>
           setFavorites(
-            favorites.filter((favoriteToRemove: string) => favoriteToRemove === favorite)
+            favorites.filter((favoriteToRemove: number) => favoriteToRemove === favorite)
           )
       }}
     >

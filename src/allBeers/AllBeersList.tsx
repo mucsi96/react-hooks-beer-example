@@ -12,7 +12,7 @@ export const AllBeersList: React.FC = () => {
       beers={beers}
       loading={loading}
       error={error}
-      isFavorite={(id: string) => favorites.includes(id)}
+      isFavorite={(id: number) => favorites.includes(id)}
     />
   );
 };
