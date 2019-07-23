@@ -1,5 +1,12 @@
+body {
+  background-color: #d8d3ca;
+}
+
 .container {
   max-width: 800px;
   margin: 0 auto;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Lora', sans-serif;
+  padding: 30px;
+  box-shadow: 0 0 500px #0000001f;
+  min-height: 100vh;
 }

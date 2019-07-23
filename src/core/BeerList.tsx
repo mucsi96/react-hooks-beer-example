@@ -1,11 +1,16 @@
 import React from 'react';
-import { useBeers } from './BeersProvider';
 import { Beer } from './Beer';
 import style from './BeerList.module.css';
+import { TBeer } from '../punkapi';
 
-export const BeerList: React.FC = () => {
-  const { beers, loading, error } = useBeers();
+type TBeerList = {
+  beers: TBeer[];
+  loading: boolean;
+  error: string;
+  isFavorite: (id: string) => boolean;
+};
 
+export const BeerList: React.FC<TBeerList> = ({ beers, loading, error, isFavorite }) => {
   if (loading) {
     return <div>'Loading beers...'</div>;
   }
@@ -23,6 +28,7 @@ export const BeerList: React.FC = () => {
           description={description}
           imageUrl={imageUrl}
           firstBrewed={firstBrewed}
+          isFavorite={isFavorite(id)}
         />
       ))}
     </section>

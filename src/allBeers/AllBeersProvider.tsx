@@ -1,19 +1,15 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { fetchBeers, TBeer } from '../punkapi';
 
-export type TBeersContext = {
+export type TAllBeersContext = {
   beers: TBeer[];
   loading: boolean;
   error: string;
 };
 
-const BeersContext = createContext<TBeersContext>({
-  beers: [],
-  loading: false,
-  error: ''
-});
+const AllBeersContext = createContext<TAllBeersContext>({} as TAllBeersContext);
 
-export const BeersProvider: React.FC = ({ children }) => {
+export const AllBeersProvider: React.FC = ({ children }) => {
   const [beers, setBeers] = useState<TBeer[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
@@ -32,10 +28,12 @@ export const BeersProvider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <BeersContext.Provider value={{ beers, error, loading }}>{children}</BeersContext.Provider>
+    <AllBeersContext.Provider value={{ beers, error, loading }}>
+      {children}
+    </AllBeersContext.Provider>
   );
 };
 
-export const useBeers = () => {
-  return useContext(BeersContext);
+export const useAllBeers = () => {
+  return useContext(AllBeersContext);
 };

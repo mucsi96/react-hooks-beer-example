@@ -17,9 +17,13 @@
 }
 
 .firstBrewed {
-  color: gray;
+  color: #6d622c;
 }
 
 .title {
   margin-top: 0;
+}
+
+.description {
+  font-size: 14px;
 }
