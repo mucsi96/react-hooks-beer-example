@@ -2,8 +2,8 @@ import React, { createContext, useState, useContext } from 'react';
 
 type TFavoritesContext = {
   favorites: number[];
-  addFavorite: (favorite: number) => void;
-  removeFavorite: (favorite: number) => void;
+  toogleFavorite: (favorite: number) => void;
+  isFavorite: (favorite: number) => boolean;
 };
 
 const FavoritesContext = createContext<TFavoritesContext>({} as TFavoritesContext);
@@ -11,15 +11,24 @@ const FavoritesContext = createContext<TFavoritesContext>({} as TFavoritesContex
 export const FavoritesProvider: React.FC = ({ children }) => {
   const [favorites, setFavorites] = useState<number[]>([]);
 
+  const isFavorite = (favorite: number) => {
+    return favorites.includes(favorite);
+  };
+
+  const toogleFavorite = (favorite: number) => {
+    if (isFavorite(favorite)) {
+      setFavorites(favorites.filter((favoriteToRemove: number) => favoriteToRemove !== favorite));
+    } else {
+      setFavorites([...favorites, favorite]);
+    }
+  };
+
   return (
     <FavoritesContext.Provider
       value={{
         favorites,
-        addFavorite: (favorite: number) => setFavorites([...favorites, favorite]),
-        removeFavorite: (favorite: number) =>
-          setFavorites(
-            favorites.filter((favoriteToRemove: number) => favoriteToRemove === favorite)
-          )
+        toogleFavorite,
+        isFavorite
       }}
     >
       {children}

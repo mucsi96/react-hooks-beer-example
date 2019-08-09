@@ -3,6 +3,7 @@ import { fetchBeers, TBeer } from '../punkapi';
 
 export type TAllBeersContext = {
   beers: TBeer[];
+  getBeerById: (id: number) => TBeer | undefined;
   loading: boolean;
   error: string;
 };
@@ -27,8 +28,10 @@ export const AllBeersProvider: React.FC = ({ children }) => {
     })();
   }, []);
 
+  const getBeerById = (id: number) => beers.find(({ id: beerId }) => beerId === id);
+
   return (
-    <AllBeersContext.Provider value={{ beers, error, loading }}>
+    <AllBeersContext.Provider value={{ beers, getBeerById, error, loading }}>
       {children}
     </AllBeersContext.Provider>
   );

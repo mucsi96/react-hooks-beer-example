@@ -1,4 +1,7 @@
-.container {
-  border: none;
-  background: none;
+.container:not(.active) {
+  color: #aba8a8;
+}
+
+.container.active {
+  color: #ed8a19;
 }

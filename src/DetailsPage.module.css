@@ -1,0 +1,28 @@
+.mainContent {
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr) 2fr;
+}
+
+.image {
+  height: 300px;
+  align-self: center;
+  justify-self: center;
+}
+
+.firstBrewed {
+  color: #6d622c;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header > :not(:first-child) {
+  margin-left: 20px;
+}
+
+.headerTitle {
+  flex-grow: 1;
+}

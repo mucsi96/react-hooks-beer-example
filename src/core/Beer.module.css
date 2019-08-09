@@ -16,12 +16,23 @@
   margin-top: 10px;
 }
 
+.favoriteMark {
+  color: #ed8a19;
+  margin-left: 10px;
+}
+
 .firstBrewed {
   color: #6d622c;
 }
 
+.titleLink {
+  color: inherit;
+}
+
 .title {
   margin-top: 0;
+  display: flex;
+  align-items: center;
 }
 
 .description {
