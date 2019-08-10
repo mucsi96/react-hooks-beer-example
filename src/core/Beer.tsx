@@ -8,7 +8,7 @@ type TBeerProps = {
   name: string;
   imageUrl: string;
   tagline: string;
-  isFavorite: boolean;
+  isFavorite?: boolean;
 };
 
 export const Beer: React.FC<TBeerProps> = ({ id, name, imageUrl, tagline, isFavorite }) => (

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link as RouterLink } from 'wouter';
 import style from './Link.module.css';
 import classNames from 'classnames';
 
@@ -9,21 +8,21 @@ export const Link: React.FC<React.HTMLProps<HTMLAnchorElement>> = ({
   className,
   ...props
 }) => {
-  const isExternal = href && href.includes('://');
-
-  if (isExternal) {
-    return (
-      <a {...props} href={href} className={classNames(style.container, className)}>
-        {children}
-      </a>
-    );
-  }
+  const isInternal = href && ['.', '/'].some(prefix => href.startsWith(prefix));
+  const pushState = (event: React.MouseEvent) => {
+    event.preventDefault();
+    window.history.pushState(null, '', href);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
 
   return (
-    <RouterLink href={href}>
-      <a {...props} className={classNames(style.container, className)}>
-        {children}
-      </a>
-    </RouterLink>
+    <a
+      {...props}
+      href={href}
+      className={classNames(style.container, className)}
+      {...(isInternal && { onClick: pushState })}
+    >
+      {children}
+    </a>
   );
 };

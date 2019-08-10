@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 export function useLocalStorage<T>(key: string, initialValue: T) {
-  const getPersistedValue = () => {
+  const initialPersistedValue = useMemo(() => {
     try {
       const item = window.localStorage.getItem(key);
 
@@ -14,20 +14,17 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
       console.log(error);
       return initialValue;
     }
-  };
+  }, [key, initialValue]);
 
-  const setPersistedValue = (value: T) => {
+  const [value, setValue] = useState(initialPersistedValue);
+
+  useEffect(() => {
     try {
       window.localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
       console.log(error);
     }
-  };
-
-  const [value, setValue] = useState(getPersistedValue());
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => setPersistedValue(value), [value]);
+  }, [key, value]);
 
   return [value, setValue];
 }

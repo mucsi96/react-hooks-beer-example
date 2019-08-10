@@ -16,7 +16,7 @@ export const AllBeersProvider: React.FC = ({ children }) => {
   const [error, setError] = useState<string>('');
 
   useEffect(() => {
-    (async () => {
+    async function fetchBeersAndHandleErrors() {
       try {
         setLoading(true);
         setBeers(await fetchBeers());
@@ -25,7 +25,9 @@ export const AllBeersProvider: React.FC = ({ children }) => {
       } finally {
         setLoading(false);
       }
-    })();
+    }
+
+    fetchBeersAndHandleErrors();
   }, []);
 
   const getBeerById = (id: number) => beers.find(({ id: beerId }) => beerId === id);
