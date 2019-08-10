@@ -26,6 +26,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
 
   const [value, setValue] = useState(getPersistedValue());
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => setPersistedValue(value), [value]);
 
   return [value, setValue];
