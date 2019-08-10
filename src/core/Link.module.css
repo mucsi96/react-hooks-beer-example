@@ -1,0 +1,7 @@
+.container {
+  color: inherit;
+}
+
+.container:hover {
+  opacity: 0.5;
+}

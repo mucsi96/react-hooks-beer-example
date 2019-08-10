@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Beer.module.css';
 import { ReactComponent as StarIcon } from '../icons/star.svg';
-import { Link } from 'wouter';
+import { Link } from './Link';
 
 type TBeerProps = {
   id: number;
@@ -24,12 +24,10 @@ export const Beer: React.FC<TBeerProps> = ({
     <img src={imageUrl} alt={name} className={style.image} />
     <header>
       <Link href={`/beer/${id}`}>
-        <a className={style.titleLink}>
-          <h2 className={style.title}>
-            {name}
-            {isFavorite && <StarIcon className={style.favoriteMark} />}
-          </h2>
-        </a>
+        <h2 className={style.title}>
+          {name}
+          {isFavorite && <StarIcon className={style.favoriteMark} />}
+        </h2>
       </Link>
       <span className={style.firstBrewed}>
         First brewed: {new Intl.DateTimeFormat().format(firstBrewed)}

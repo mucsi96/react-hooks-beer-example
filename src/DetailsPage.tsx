@@ -5,7 +5,6 @@ import { AddToFavoritesButton } from './favorites/AddToFavoritesButton';
 import { useFavorites } from './favorites/FavoritesProvider';
 import { ReactComponent as BackIcon } from './icons/left-arrow.svg';
 import { IconLink } from './core/IconLink';
-import { Link } from 'wouter';
 
 type TDetailsPageProps = {
   id: number;
