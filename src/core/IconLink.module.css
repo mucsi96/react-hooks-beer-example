@@ -1,9 +1,4 @@
 .container {
   font-size: 2em;
-  color: inherit;
   line-height: 0;
-}
-
-.container:hover {
-  opacity: 0.5;
 }

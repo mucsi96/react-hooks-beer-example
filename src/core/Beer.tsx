@@ -12,27 +12,12 @@ type TBeerProps = {
   isFavorite: boolean;
 };
 
-export const Beer: React.FC<TBeerProps> = ({
-  id,
-  name,
-  imageUrl,
-  description,
-  firstBrewed,
-  isFavorite
-}) => (
-  <article className={style.container}>
+export const Beer: React.FC<TBeerProps> = ({ id, name, imageUrl, firstBrewed, isFavorite }) => (
+  <Link href={`/beer/${id}`} className={style.container}>
     <img src={imageUrl} alt={name} className={style.image} />
-    <header>
-      <Link href={`/beer/${id}`}>
-        <h2 className={style.title}>
-          {name}
-          {isFavorite && <StarIcon className={style.favoriteMark} />}
-        </h2>
-      </Link>
-      <span className={style.firstBrewed}>
-        First brewed: {new Intl.DateTimeFormat().format(firstBrewed)}
-      </span>
-    </header>
-    <main className={style.description}>{description}</main>
-  </article>
+    <h2 className={style.title}>
+      {name}
+      {isFavorite && <StarIcon className={style.favoriteMark} />}
+    </h2>
+  </Link>
 );
