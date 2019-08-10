@@ -19,11 +19,13 @@ afterEach(() => {
 });
 
 describe('Beer', () => {
-  act(() => {
-    render(
-      <Beer id={1} name="test beer" imageUrl="test/image/url.png" tagline="test tagline" />,
-      container
-    );
+  it('renders', () => {
+    act(() => {
+      render(
+        <Beer id={1} name="test beer" imageUrl="test/image/url.png" tagline="test tagline" />,
+        container
+      );
+    });
+    expect(container && container.innerHTML).toBe('Hey, stranger');
   });
-  expect(container && container.textContent).toBe('Hey, stranger');
 });
