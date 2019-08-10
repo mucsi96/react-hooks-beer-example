@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
+import { useLocalStorage } from './useLocalStorage';
 
 type TFavoritesContext = {
   favorites: number[];
@@ -9,7 +10,7 @@ type TFavoritesContext = {
 const FavoritesContext = createContext<TFavoritesContext>({} as TFavoritesContext);
 
 export const FavoritesProvider: React.FC = ({ children }) => {
-  const [favorites, setFavorites] = useState<number[]>([]);
+  const [favorites, setFavorites] = useLocalStorage<number[]>('favorites', []);
 
   const isFavorite = (favorite: number) => {
     return favorites.includes(favorite);

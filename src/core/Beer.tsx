@@ -19,7 +19,7 @@ export const Beer: React.FC<TBeerProps> = ({ id, name, imageUrl, tagline, isFavo
         {name}
         {isFavorite && <StarIcon className={style.favoriteMark} />}
       </h2>
-      <span className={style.tagline}>{tagline}</span>
+      <p>{tagline}</p>
     </div>
   </Link>
 );
