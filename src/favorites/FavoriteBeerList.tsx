@@ -4,7 +4,11 @@ import { useAllBeers } from '../allBeers/AllBeersProvider';
 import { TBeer } from '../punkapi';
 import { BeerList } from '../core/BeerList';
 
-export const FavoriteBeerList: React.FC = () => {
+type TFavoriteBeerListProps = {
+  className?: string;
+};
+
+export const FavoriteBeerList: React.FC<TFavoriteBeerListProps> = ({ className }) => {
   const { favorites } = useFavorites();
   const { beers, loading, error } = useAllBeers();
   const favoriteBeers = useMemo(
@@ -16,6 +20,12 @@ export const FavoriteBeerList: React.FC = () => {
   );
 
   return (
-    <BeerList loading={loading} error={error} beers={favoriteBeers} isFavorite={() => false} />
+    <BeerList
+      className={className}
+      loading={loading}
+      error={error}
+      beers={favoriteBeers}
+      isFavorite={() => false}
+    />
   );
 };

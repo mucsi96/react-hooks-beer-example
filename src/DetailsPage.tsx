@@ -19,7 +19,7 @@ export const DetailsPage: React.FC<TDetailsPageProps> = ({ id }) => {
     return <h1>{`No beer found with id ${id}!`}</h1>;
   }
 
-  const { imageUrl, name, firstBrewed, description } = beer;
+  const { imageUrl, name, tagline, firstBrewed, description, brewersTips } = beer;
 
   return (
     <article>
@@ -33,10 +33,10 @@ export const DetailsPage: React.FC<TDetailsPageProps> = ({ id }) => {
       <main className={style.mainContent}>
         <img src={imageUrl} alt={name} className={style.image} />
         <div className={style.details}>
-          <span className={style.firstBrewed}>
-            First brewed: {new Intl.DateTimeFormat().format(firstBrewed)}
-          </span>
+          <p className={style.tagline}>{tagline}</p>
+          <p>First brewed: {new Intl.DateTimeFormat().format(firstBrewed)}</p>
           <p>{description}</p>
+          <p>{brewersTips}</p>
         </div>
       </main>
     </article>
