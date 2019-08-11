@@ -32,7 +32,7 @@ describe('useRouteParams', () => {
     expect(result.current).toBe(null);
   });
 
-  it('rerenders on history popstate event', () => {
+  it('updates on history popstate event', () => {
     const { result } = renderWithProps('/test');
 
     act(() => {
@@ -41,5 +41,17 @@ describe('useRouteParams', () => {
     });
 
     expect(result.current).toEqual({});
+  });
+
+  it('not updates on history popstate event after unmount', () => {
+    const { result, unmount } = renderWithProps('/test');
+
+    act(() => {
+      mockPath = '/test';
+      unmount();
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    });
+
+    expect(result.current).toEqual(null);
   });
 });
