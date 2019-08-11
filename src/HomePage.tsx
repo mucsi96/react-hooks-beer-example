@@ -1,7 +1,7 @@
 import React from 'react';
-import { FavoriteBeerList } from './favorites/FavoriteBeerList';
-import { AllBeersList } from './allBeers/AllBeersList';
-import { useFavorites } from './favorites/FavoritesProvider';
+import { FavoriteBeerList } from 'favorites/FavoriteBeerList';
+import { AllBeersList } from 'allBeers/AllBeersList';
+import { useFavorites } from 'favorites/FavoritesProvider';
 import style from './HomePage.module.css';
 
 export const HomePage: React.FC = () => {

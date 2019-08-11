@@ -8,7 +8,7 @@ export type TAllBeersContext = {
   error: string;
 };
 
-const AllBeersContext = createContext<TAllBeersContext>({} as TAllBeersContext);
+const AllBeersContext = createContext<TAllBeersContext | undefined>(undefined);
 
 export const AllBeersProvider: React.FC = ({ children }) => {
   const [beers, setBeers] = useState<TBeer[]>([]);
@@ -39,6 +39,12 @@ export const AllBeersProvider: React.FC = ({ children }) => {
   );
 };
 
-export const useAllBeers = () => {
-  return useContext(AllBeersContext);
+export const useAllBeers = (): TAllBeersContext => {
+  const context = useContext(AllBeersContext);
+
+  if (context === undefined) {
+    throw new Error('useAllBeers must be used within a AllBeersProvider');
+  }
+
+  return context;
 };

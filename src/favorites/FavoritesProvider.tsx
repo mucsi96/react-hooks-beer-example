@@ -7,7 +7,7 @@ type TFavoritesContext = {
   isFavorite: (favorite: number) => boolean;
 };
 
-const FavoritesContext = createContext<TFavoritesContext>({} as TFavoritesContext);
+const FavoritesContext = createContext<TFavoritesContext | undefined>(undefined);
 
 export const FavoritesProvider: React.FC = ({ children }) => {
   const [favorites, setFavorites] = useLocalStorage<number[]>('favorites', []);
@@ -37,4 +37,12 @@ export const FavoritesProvider: React.FC = ({ children }) => {
   );
 };
 
-export const useFavorites = () => useContext(FavoritesContext);
+export const useFavorites = (): TFavoritesContext => {
+  const context = useContext(FavoritesContext);
+
+  if (context === undefined) {
+    throw new Error('useFavorites must be used within a FavoritesProvider');
+  }
+
+  return context;
+};

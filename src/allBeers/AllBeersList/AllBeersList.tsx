@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAllBeers } from './AllBeersProvider';
+import { useAllBeers } from 'allBeers/AllBeersProvider';
 import { BeerList } from 'core/BeerList';
 import { useFavorites } from 'favorites/FavoritesProvider';
 
