@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import { Beer } from './Beer';
 import style from './BeerList.module.css';
-import { TBeer } from '../punkapi';
+import { TBeer } from 'punkapi';
 
 type TBeerList = {
   className?: string;

@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { useFavorites } from './FavoritesProvider';
-import { useAllBeers } from '../allBeers/AllBeersProvider';
-import { TBeer } from '../punkapi';
-import { BeerList } from '../core/BeerList';
+import { useAllBeers } from 'allBeers/AllBeersProvider';
+import { TBeer } from 'punkapi';
+import { BeerList } from 'core/BeerList';
 
 type TFavoriteBeerListProps = {
   className?: string;

@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Beer.module.css';
-import { ReactComponent as StarIcon } from '../icons/star.svg';
-import { Link } from './Link';
+import { ReactComponent as StarIcon } from 'icons/star.svg';
+import { Link } from 'core/Link';
 
 type TBeerProps = {
   id: number;

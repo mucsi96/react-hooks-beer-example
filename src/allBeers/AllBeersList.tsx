@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAllBeers } from './AllBeersProvider';
-import { BeerList } from '../core/BeerList';
-import { useFavorites } from '../favorites/FavoritesProvider';
+import { BeerList } from 'core/BeerList';
+import { useFavorites } from 'favorites/FavoritesProvider';
 
 export const AllBeersList: React.FC = () => {
   const { beers, loading, error } = useAllBeers();

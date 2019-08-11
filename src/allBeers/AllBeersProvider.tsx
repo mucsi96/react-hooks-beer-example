@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
-import { fetchBeers, TBeer } from '../punkapi';
+import { fetchBeers, TBeer } from 'punkapi';
 
 export type TAllBeersContext = {
   beers: TBeer[];
