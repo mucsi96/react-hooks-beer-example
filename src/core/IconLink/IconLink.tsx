@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import style from './IconLink.module.css';
-import { Link } from './Link';
+import { Link } from 'core/Link';
 
 export const IconLink: React.FC<React.ComponentProps<typeof Link>> = ({
   className,

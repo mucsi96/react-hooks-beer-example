@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './Footer.module.css';
-import { Link } from './Link';
+import { Link } from 'core/Link';
 
 export const Footer: React.FC = () => (
   <footer className={style.container}>

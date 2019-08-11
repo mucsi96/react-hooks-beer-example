@@ -1,14 +1,14 @@
 import classNames from 'classnames';
 import React from 'react';
-import { Beer } from './Beer';
+import { Beer } from 'core/Beer';
 import style from './BeerList.module.css';
 import { TBeer } from 'punkapi';
 
 type TBeerList = {
   className?: string;
   beers: TBeer[];
-  loading: boolean;
-  error: string;
+  loading?: boolean;
+  error?: string;
   isFavorite: (id: number) => boolean;
 };
 

@@ -19,7 +19,7 @@ function getParams(pattern: string) {
 }
 
 export function useRouteParams(pattern: string) {
-  const [params, setParams] = useState();
+  const [params, setParams] = useState(getParams(pattern));
 
   useEffect(() => {
     const handleStateChange = () => setParams(getParams(pattern));
