@@ -17,7 +17,7 @@ export const Beer: React.FC<TBeerProps> = ({ id, name, imageUrl, tagline, isFavo
     <div>
       <h2 className={style.title}>
         {name}
-        {isFavorite && <StarIcon className={style.favoriteMark} aria-labelledby="favorite" />}
+        {isFavorite && <StarIcon className={style.favoriteMark} data-testid="favorite" />}
       </h2>
       <p>{tagline}</p>
     </div>

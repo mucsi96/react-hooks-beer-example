@@ -37,14 +37,16 @@ describe('Beer', () => {
   });
 
   it('renders star icon if isFavorite', () => {
-    const { getByText } = renderWithProps({ isFavorite: true });
-    expect(getByText('star.svg')).toMatchInlineSnapshot(`
-      <svg
-        aria-labelledby="favorite"
-        class="favoriteMark"
-      >
-        star.svg
-      </svg>
+    const { getAllByTestId } = renderWithProps({ isFavorite: true });
+    expect(getAllByTestId('favorite')).toMatchInlineSnapshot(`
+      Array [
+        <svg
+          class="favoriteMark"
+          data-testid="favorite"
+        >
+          star.svg
+        </svg>,
+      ]
     `);
   });
 });
