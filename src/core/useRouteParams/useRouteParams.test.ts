@@ -9,7 +9,7 @@ window.location = {
   }
 } as Location;
 
-const renderWithProps = (pattern: string) => renderHook(() => useRouteParams(pattern));
+const render = (pattern: string) => renderHook(() => useRouteParams(pattern));
 
 beforeEach(() => {
   mockPath = '/';
@@ -18,22 +18,22 @@ beforeEach(() => {
 describe('useRouteParams', () => {
   it('return params object based on provided pattern', () => {
     mockPath = '/test/1';
-    const { result } = renderWithProps('/test/:id');
+    const { result } = render('/test/:id');
     expect(result.current).toEqual({ id: '1' });
   });
 
   it('return empty object if url maches but no params in pattern', () => {
-    const { result } = renderWithProps('/');
+    const { result } = render('/');
     expect(result.current).toEqual({});
   });
 
   it('return null if no match', () => {
-    const { result } = renderWithProps('/not/matching/url');
+    const { result } = render('/not/matching/url');
     expect(result.current).toBe(null);
   });
 
   it('updates on history popstate event', () => {
-    const { result } = renderWithProps('/test');
+    const { result } = render('/test');
 
     act(() => {
       mockPath = '/test';
@@ -44,7 +44,7 @@ describe('useRouteParams', () => {
   });
 
   it('not updates on history popstate event after unmount', () => {
-    const { result, unmount } = renderWithProps('/test');
+    const { result, unmount } = render('/test');
 
     act(() => {
       mockPath = '/test';

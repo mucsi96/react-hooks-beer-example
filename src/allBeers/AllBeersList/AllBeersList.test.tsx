@@ -1,28 +1,8 @@
 import React from 'react';
 import { render, getNodeText } from '@testing-library/react';
 import { AllBeersList } from './AllBeersList';
-import { TBeer } from 'punkapi';
+import { mockBeers } from 'test/mockBeers';
 
-const mockBeers: TBeer[] = [
-  {
-    id: 1,
-    name: 'alpha beer',
-    tagline: 'alpha beer tagline',
-    firstBrewed: new Date(2019, 0, 1),
-    description: 'alpha beer description',
-    imageUrl: 'alpha/beer/img.png',
-    brewersTips: 'alpha beer brewer tips'
-  },
-  {
-    id: 2,
-    name: 'bravo beer',
-    tagline: 'bravo beer tagline',
-    firstBrewed: new Date(2019, 0, 2),
-    description: 'bravo beer description',
-    imageUrl: 'bravo/beer/img.png',
-    brewersTips: 'bravo beer brewer tips'
-  }
-];
 let mockLoading: boolean;
 let mockError: string | null;
 let mockFavorites: number[];

@@ -1,10 +1,10 @@
 import React from 'react';
-import { useAllBeers } from './allBeers/AllBeersProvider';
+import { useAllBeers } from 'allBeers/AllBeersProvider';
 import style from './DetailsPage.module.css';
-import { AddToFavoritesButton } from './favorites/AddToFavoritesButton';
-import { useFavorites } from './favorites/FavoritesProvider';
-import { ReactComponent as BackIcon } from './icons/left-arrow.svg';
-import { IconLink } from './core/IconLink';
+import { AddToFavoritesButton } from 'favorites/AddToFavoritesButton';
+import { useFavorites } from 'favorites/FavoritesProvider';
+import { ReactComponent as BackIcon } from 'icons/left-arrow.svg';
+import { IconLink } from 'core/IconLink';
 
 type TDetailsPageProps = {
   id: number;
