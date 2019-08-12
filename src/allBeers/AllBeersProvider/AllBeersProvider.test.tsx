@@ -15,20 +15,6 @@ beforeEach(() => {
   mockFetchBeersPromise = createMockPromise<TBeer[]>();
 });
 
-async function resolveMockFetchBeers() {
-  await act(async () => {
-    mockFetchBeersPromise.resolve(mockBeers);
-    await mockFetchBeersPromise;
-  });
-}
-
-async function rejectMockFetchBeers() {
-  await act(async () => {
-    mockFetchBeersPromise.reject(new Error());
-    await mockFetchBeersPromise;
-  });
-}
-
 const wrapper: React.FC = ({ children }) => <AllBeersProvider>{children}</AllBeersProvider>;
 const render = () => renderHook(() => useAllBeers(), { wrapper });
 
@@ -37,7 +23,9 @@ describe('AllBeersProvider', () => {
     const { result } = render();
 
     expect(result.current.beers).toEqual([]);
-    await resolveMockFetchBeers();
+
+    await mockFetchBeersPromise.resolve(mockBeers);
+
     expect(result.current.beers).toEqual(mockBeers);
   });
 
@@ -45,7 +33,9 @@ describe('AllBeersProvider', () => {
     const { result } = render();
 
     expect(result.current.loading).toEqual(true);
-    await resolveMockFetchBeers();
+
+    await mockFetchBeersPromise.resolve(mockBeers);
+
     expect(result.current.loading).toEqual(false);
   });
 
@@ -53,22 +43,27 @@ describe('AllBeersProvider', () => {
     const { result } = render();
 
     expect(result.current.error).toEqual('');
+
     try {
-      await rejectMockFetchBeers();
+      await mockFetchBeersPromise.reject(new Error());
     } catch {}
+
     expect(result.current.error).toEqual('Unable to fetch the beers');
   });
 
   it('provides beer by id', async () => {
     const { result } = render();
 
-    await resolveMockFetchBeers();
+    await mockFetchBeersPromise.resolve(mockBeers);
+
     const beer = result.current.getBeerById(2);
+
     expect(beer && beer.name).toEqual('bravo beer');
   });
 
   it('useAllBeers throws error outside provider', () => {
     const { result } = renderHook(() => useAllBeers());
+
     expect(() => result.current.beers).toThrowError(
       'seAllBeers must be used within a AllBeersProvider'
     );
