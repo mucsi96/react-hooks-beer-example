@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from 'react';
-import { useLocalStorage } from './useLocalStorage';
+import { useLocalStorage } from 'favorites/useLocalStorage';
 
 type TFavoritesContext = {
   favorites: number[];

@@ -11,7 +11,10 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
 
       return JSON.parse(item);
     } catch (error) {
-      console.log(error);
+      /* istanbul ignore next */
+      if (process.env.NODE_ENV !== 'test') {
+        console.log(error);
+      }
       return initialValue;
     }
   }, [key, initialValue]);
@@ -19,11 +22,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
   const [value, setValue] = useState(initialPersistedValue);
 
   useEffect(() => {
-    try {
-      window.localStorage.setItem(key, JSON.stringify(value));
-    } catch (error) {
-      console.log(error);
-    }
+    window.localStorage.setItem(key, JSON.stringify(value));
   }, [key, value]);
 
   return [value, setValue];
