@@ -8,7 +8,7 @@ import { DetailsPage } from './DetailsPage';
 import { useRouteParams } from 'core/useRouteParams';
 
 const App: React.FC = () => {
-  const detailsPageParams = useRouteParams('/beer/:id');
+  const detailsPageParams = useRouteParams<{ id: string }>('/beer/:id');
   const renderView = () => {
     if (detailsPageParams) {
       return <DetailsPage id={parseInt(detailsPageParams.id)} />;

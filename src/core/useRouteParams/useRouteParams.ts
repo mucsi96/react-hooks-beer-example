@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import pathToRegexp, { Key } from 'path-to-regexp';
 
-function getParams(pattern: string) {
+function getParams<T>(pattern: string): T | null {
   const keys: Key[] = [];
   const regexp = pathToRegexp(pattern, keys);
   const match = regexp.exec(window.location.pathname);
@@ -15,11 +15,11 @@ function getParams(pattern: string) {
       ...params,
       [key.name]: decodeURIComponent(match[index + 1])
     };
-  }, {});
+  }, {}) as T;
 }
 
-export function useRouteParams(pattern: string) {
-  const [params, setParams] = useState(getParams(pattern));
+export function useRouteParams<T>(pattern: string) {
+  const [params, setParams] = useState(getParams<T>(pattern));
 
   useEffect(() => {
     const handleStateChange = () => setParams(getParams(pattern));
