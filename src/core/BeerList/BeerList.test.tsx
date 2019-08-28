@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { BeerList } from './BeerList';
-import { TBeer } from 'punkapi';
 import { mockBeers } from 'test/mockBeers';
 
 jest.mock('core/Beer', () => ({

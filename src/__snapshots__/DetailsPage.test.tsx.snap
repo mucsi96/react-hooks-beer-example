@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DetailsPage renders 1`] = `
+<div>
+  <article>
+    <header
+      class="header"
+    >
+      <a
+        class="container container"
+        href="/"
+      >
+        <svg>
+          left-arrow.svg
+        </svg>
+      </a>
+      <h2
+        class="headerTitle"
+      >
+        alpha beer
+      </h2>
+      <button
+        class="container container"
+        data-testid="favorite-button"
+        type="button"
+      >
+        <svg>
+          star.svg
+        </svg>
+      </button>
+    </header>
+    <main
+      class="mainContent"
+    >
+      <img
+        alt="alpha beer"
+        class="image"
+        src="alpha/beer/img.png"
+      />
+      <div
+        class="details"
+      >
+        <p
+          class="tagline"
+        >
+          alpha beer tagline
+        </p>
+        <p>
+          First brewed: 
+          1/1/2019
+        </p>
+        <p>
+          alpha beer description
+        </p>
+        <p>
+          alpha beer brewer tips
+        </p>
+      </div>
+    </main>
+  </article>
+</div>
+`;

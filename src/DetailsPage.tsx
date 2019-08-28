@@ -28,7 +28,11 @@ export const DetailsPage: React.FC<TDetailsPageProps> = ({ id }) => {
           <BackIcon />
         </IconLink>
         <h2 className={style.headerTitle}>{name}</h2>
-        <AddToFavoritesButton active={isFavorite(id)} onClick={() => toogleFavorite(id)} />
+        <AddToFavoritesButton
+          active={isFavorite(id)}
+          onClick={() => toogleFavorite(id)}
+          data-testid="favorite-button"
+        />
       </header>
       <main className={style.mainContent}>
         <img src={imageUrl} alt={name} className={style.image} />
