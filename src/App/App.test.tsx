@@ -26,6 +26,7 @@ jest.mock('allBeers/AllBeersProvider', () => {
     })
   };
 });
+
 jest.mock('favorites/FavoritesProvider', () => {
   const originalModule = jest.requireActual('favorites/FavoritesProvider');
 
