@@ -30,7 +30,8 @@
       "!src/test/**",
       "!src/**/index.{ts,tsx}",
       "!src/**/*.d.ts"
-    ]
+    ],
+    "globalSetup": "<rootDir>/src/test/globalSetup.js"
   },
   "browserslist": {
     "production": [

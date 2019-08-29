@@ -1,13 +1,13 @@
 import React from 'react';
 import style from './App.module.css';
 import { Footer } from 'core/Footer';
-import { HomePage } from './HomePage';
+import { HomePage } from 'HomePage';
 import { AllBeersProvider } from 'allBeers/AllBeersProvider';
 import { FavoritesProvider } from 'favorites/FavoritesProvider';
-import { DetailsPage } from './DetailsPage';
+import { DetailsPage } from 'DetailsPage';
 import { useRouteParams } from 'core/useRouteParams';
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   const detailsPageParams = useRouteParams<{ id: string }>('/beer/:id');
   const renderView = () => {
     if (detailsPageParams) {
@@ -26,5 +26,3 @@ const App: React.FC = () => {
     </AllBeersProvider>
   );
 };
-
-export default App;
