@@ -8,9 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
-      - uses: actions/npm@master
-        args: ci
-      - uses: actions/npm@master
-        args: test:coverage
+      - name: npm install, build, and test
+        run: |
+          npm ci
+          npm run test:coverage
         env:
           CI: true
