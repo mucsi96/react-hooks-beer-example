@@ -1,7 +1,7 @@
 import React from 'react';
 import { act } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
-import { FavoritesProvider, useFavorites } from './FavoritesProvider';
+import { FavoritesProvider, useFavorites } from './useFavorites';
 
 let mockFavorites: number[];
 let mockSetFavorites: (favorite: number) => void;

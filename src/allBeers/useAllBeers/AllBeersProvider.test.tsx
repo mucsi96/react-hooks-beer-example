@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderHook, act } from '@testing-library/react-hooks';
-import { AllBeersProvider, useAllBeers } from './AllBeersProvider';
+import { AllBeersProvider, useAllBeers } from './useAllBeers';
 import { TBeer } from 'punkapi';
 import { createMockPromise, TMockPromise } from 'test/mockPromise';
 import { mockBeers } from 'test/mockBeers';

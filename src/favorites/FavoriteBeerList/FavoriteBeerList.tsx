@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { useFavorites } from 'favorites/FavoritesProvider';
-import { useAllBeers } from 'allBeers/AllBeersProvider';
+import { useFavorites } from 'favorites/useFavorites';
+import { useAllBeers } from 'allBeers/useAllBeers';
 import { TBeer } from 'punkapi';
 import { BeerList } from 'core/BeerList';
 
