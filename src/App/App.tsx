@@ -2,8 +2,6 @@ import React from 'react';
 import style from './App.module.css';
 import { Footer } from 'core/Footer';
 import { HomePage } from 'HomePage';
-import { AllBeersProvider } from 'allBeers/AllBeersProvider';
-import { FavoritesProvider } from 'favorites/FavoritesProvider';
 import { DetailsPage } from 'DetailsPage';
 import { useRouteParams } from 'core/useRouteParams';
 
@@ -18,11 +16,9 @@ export const App: React.FC = () => {
   };
 
   return (
-    <AllBeersProvider>
-      <FavoritesProvider>
-        <main className={style.container}>{renderView()}</main>
-        <Footer />
-      </FavoritesProvider>
-    </AllBeersProvider>
+    <>
+      <main className={style.container}>{renderView()}</main>
+      <Footer />
+    </>
   );
 };

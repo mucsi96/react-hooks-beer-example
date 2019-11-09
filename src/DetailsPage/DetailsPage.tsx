@@ -1,8 +1,8 @@
 import React from 'react';
-import { useAllBeers } from 'allBeers/AllBeersProvider';
+import { useAllBeers } from 'allBeers/useAllBeers';
 import style from './DetailsPage.module.css';
 import { AddToFavoritesButton } from 'favorites/AddToFavoritesButton';
-import { useFavorites } from 'favorites/FavoritesProvider';
+import { useFavorites } from 'favorites/useFavorites';
 import { ReactComponent as BackIcon } from 'icons/left-arrow.svg';
 import { IconLink } from 'core/IconLink';
 
