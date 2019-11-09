@@ -12,7 +12,7 @@ export type TAllBeers = {
 const useBeers = createSharedState<TBeer[]>([]);
 const useLoading = createSharedState(false);
 const useError = createSharedState('');
-let instances = 0;
+let fetched = false;
 
 export const useAllBeers = (): TAllBeers => {
   const [beers, setBeers] = useBeers();
@@ -30,17 +30,11 @@ export const useAllBeers = (): TAllBeers => {
         setLoading(false);
       }
     }
-    if (!instances) {
+    if (!fetched) {
+      fetched = true;
       fetchBeersAndHandleErrors();
     }
   });
-
-  useEffect(() => {
-    instances++;
-    return () => {
-      instances--;
-    };
-  }, []);
 
   const getBeerById = (id: number) => beers.find(({ id: beerId }) => beerId === id);
 
